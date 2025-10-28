@@ -36,7 +36,7 @@ with mlflow.start_run():
     print("model is saving")
     model_path = os.path.join(MODEL_DIR, "model.pkl")
     joblib.dump(model,model_path)
-    print("model save in the given path")
+    print("File saved?", os.path.exists(model_path))
 
     mlflow.log_artifact(model_path, artifact_path="model")
 
