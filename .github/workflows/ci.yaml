@@ -10,7 +10,7 @@ jobs:
     
     steps:
       - name: checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: setup python
         uses: actions/setup-python@v4
@@ -28,7 +28,7 @@ jobs:
         run: python drc/train.py
 
       - name: upload trained model
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trained-model
           path: drc/models/model.pkl
@@ -39,10 +39,10 @@ jobs:
 
     steps:
     - name: check repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: download trained model
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: trained-model
         path: drc/models
