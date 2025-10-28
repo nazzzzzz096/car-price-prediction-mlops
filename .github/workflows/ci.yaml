@@ -33,6 +33,14 @@ jobs:
           name: trained-model
           path: drc/models/model.pkl
 
+      - name: Commit and push model to repo
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add drc/models/model.pkl
+          git commit -m "Add latest trained model"
+          git push
+
   docker:
     needs: train-model
     runs-on: ubuntu-latest
