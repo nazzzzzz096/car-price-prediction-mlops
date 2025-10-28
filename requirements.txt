@@ -4,3 +4,4 @@ pandas
 joblib
 uvicorn
 fastapi
+prometheus-fastapi-instrumentator
