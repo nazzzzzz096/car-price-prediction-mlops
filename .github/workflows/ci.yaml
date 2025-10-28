@@ -34,6 +34,12 @@ jobs:
     steps:
     - name: check repository
       uses: actions/checkout@v3
+
+    - name: download trained model
+      uses: actions/download-artifact@v3
+      with:
+        name: trained-model
+        path: drc/models
     - name: docker login
       run : echo "${{secrets.DOCKERHUB_TOKEN}}" | docker login -u "${{secrets.DOCKERHUB_USERNAME}}" --password-stdin
 
