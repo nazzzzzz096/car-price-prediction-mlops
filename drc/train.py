@@ -33,8 +33,9 @@ with mlflow.start_run():
     print(f'mean_squared_error {mse}')
 
     mlflow.log_metric("mean_squared_error",mse)
-    print("model is saving")
+    
     model_path = os.path.join(MODEL_DIR, "model.pkl")
+    print("Saving model to:", model_path)
     joblib.dump(model,model_path)
     print("File saved?", os.path.exists(model_path))
 
