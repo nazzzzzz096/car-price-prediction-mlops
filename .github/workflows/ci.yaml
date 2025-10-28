@@ -19,7 +19,12 @@ jobs:
       - name: install dependencies
         run : pip install -r requirements.txt
 
-      - name: train model
+      - name: train model with mlops
+        env:
+          MLFLOW_TRACKING_URI: https://dagshub.com/nazzzzzz096/car-price-prediction-mlops.mlflow
+          MLFLOW_TRACKING_USERNAME: ${{secrets.MLFLOW_TRACKING_USERNAME}}
+          MLFLOW_TRACKING_PASSWORD: ${{secrets.MLFLOW_TRACKING_PASSWORD}}
+
         run: python drc/train.py
 
   docker:
