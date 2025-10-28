@@ -25,6 +25,8 @@ with mlflow.start_run():
     print(f'mean_squared_error {mse}')
 
     mlflow.log_metric("mean_squared_error",mse)
+    print("model is saving")
     joblib.dump(model,"models/model.pkl")
+    print("model save in the given path")
 
     mlflow.sklearn.log_model(model,registered_model_name="prediction-model")
