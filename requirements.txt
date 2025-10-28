@@ -5,3 +5,4 @@ joblib
 uvicorn
 fastapi
 prometheus-fastapi-instrumentator
+pydantic
