@@ -38,4 +38,5 @@ with mlflow.start_run():
     joblib.dump(model,model_path)
     print("model save in the given path")
 
-    mlflow.sklearn.log_model(model, "model")
+    mlflow.log_artifact(model_path, artifact_path="model")
+
