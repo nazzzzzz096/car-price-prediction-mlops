@@ -22,7 +22,7 @@ with mlflow.start_run():
     y_pred=model.predict(x_test)
     mse=mean_squared_error(y_test,y_pred)
 
-    print(f'accuracy {mse}')
+    print(f'mean_squared_error {mse}')
 
     mlflow.log_metric("mean_squared_error",mse)
     joblib.dump(model,"models/model.pkl")
