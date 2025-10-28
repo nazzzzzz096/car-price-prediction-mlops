@@ -1,0 +1,22 @@
+name: car prediction
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout repository
+        run: actions/checkout@v3
+
+      - name: setup python
+        run: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+      - name: install dependencies
+
+      - name: train model
+        run: python drc/train.py
