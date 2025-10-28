@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error
 import mlflow
 import mlflow.sklearn
 import pandas as pd
@@ -20,11 +20,11 @@ with mlflow.start_run():
     model.fit(x_train,y_train)
 
     y_pred=model.predict(x_test)
-    accuracy=accuracy_score(y_test,y_pred)
+    mse=mean_squared_error(y_test,y_pred)
 
-    print(f'accuracy {accuracy}')
+    print(f'accuracy {mse}')
 
-    mlflow.log_metric("accuracy",accuracy)
+    mlflow.log_metric("mean_squared_error",mse)
     joblib.dump(model,"models/model.pkl")
 
     mlflow.sklearn.log_model(model,registered_model_name="prediction-model")
