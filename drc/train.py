@@ -14,6 +14,8 @@ MODEL_DIR = os.path.join(BASE_DIR, "models")
 os.makedirs(MODEL_DIR, exist_ok=True)
 
 mlflow.set_tracking_uri("https://dagshub.com/nazzzzzz096/car-price-prediction-mlops.mlflow")
+os.environ["MLFLOW_TRACKING_USERNAME"] = "nazzzzzz096"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "c56c6ce2c30b611de1f68039fc8d79a54bade6c4"
 mlflow.set_experiment("car-prediction")
 df=pd.read_csv("data/updated.csv")
 
