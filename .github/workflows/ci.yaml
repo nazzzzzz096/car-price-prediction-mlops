@@ -27,6 +27,12 @@ jobs:
 
         run: python drc/train.py
 
+      - name: upload trained model
+        uses: actions/upload-artifact@v3
+        with:
+          name: trained-model
+          path: drc/models/model.pkl
+
   docker:
     needs: train-model
     runs-on: ubuntu-latest
